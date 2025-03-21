@@ -17,7 +17,9 @@ public class AppBadgePlusPlugin: NSObject, FlutterPlugin {
           if count > 0 {
             NSApplication.shared.dockTile.badgeLabel = "\(count)"
           } else {
-            NSApplication.shared.dockTile.badgeLabel = nil
+            let dockTile = NSApplication.shared.dockTile
+            dockTile.badgeLabel = nil
+            dockTile.display() // 강제로 업데이트
           }
         }
         result(nil)
